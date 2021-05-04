@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  tasks:
+    - ec2_instance_info:
+        filters:
+          availability-zone: us-east-1e
+    - ec2_instance_info:
+          instance_ids: i-039b514fa0df2c911
+    - ec2_instance_info:
+        filters:
+          "tag:Name": ubuntu       
+          region: us-east-1

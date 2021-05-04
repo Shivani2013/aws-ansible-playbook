@@ -1,0 +1,13 @@
+---
+# tasks file for validate-instance
+- name: cat var tmp file
+  shell: cat /tmp/obtained_ip.txt
+  register: obtained_ip
+
+
+- name: pause
+  pause:
+    minutes: 2
+
+- name: validate
+  shell: ping -w 2 "{{obtained_ip.stdout_lines[0] | trim}}" 

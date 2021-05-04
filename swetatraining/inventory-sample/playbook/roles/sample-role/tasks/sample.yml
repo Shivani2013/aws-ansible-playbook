@@ -1,0 +1,10 @@
+--- 
+- name: nothing
+  shell: python3 
+  register: py_op
+  delegate_to: localhost
+
+- name: debug py script op
+  debug:
+    msg: "python script output: {{py_op}}"
+  delegate_to: localhost

@@ -1,0 +1,7 @@
+---
+
+- name: use roles of different projects
+  hosts: localhost
+  gather_facts: no
+  roles:
+  - roles/import_roles_frm_different_prjcts_in_local_prj

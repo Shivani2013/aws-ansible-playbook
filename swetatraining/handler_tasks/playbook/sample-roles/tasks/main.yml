@@ -1,0 +1,8 @@
+---
+# tasks file for sample-roles
+
+- name: include testing task
+  include_tasks: ex-ignore_errors.yml
+                     
+- name: include sample task
+  include_tasks: sample.yml

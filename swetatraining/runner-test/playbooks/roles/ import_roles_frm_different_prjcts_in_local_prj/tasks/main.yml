@@ -1,0 +1,9 @@
+---
+# tasks file for  import_roles_frm_different_prjcts_in_local_prj
+- name: importing role from A lib
+  import_role:
+    name: shivani-shared-library-A/first-role
+
+- name: importing role from B lib
+  import_role: 
+    name: shivani-shared-library-B/second-role

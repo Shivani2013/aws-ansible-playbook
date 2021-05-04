@@ -1,0 +1,11 @@
+stages:
+- first
+
+first:
+  stage: first
+  script:
+    - echo $CI_PIPELINE_ID
+    - ansible-galaxy install --force -r playbooks/requirements.yml --roles-path playbooks/roles/ -vvv
+    - ansible-playbook playbooks/main.yml -vvv
+  tags:
+    - tomcat-shell-runner

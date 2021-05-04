@@ -1,0 +1,6 @@
+- hosts: localhost
+  tasks: 
+  - s3_bucket:
+      name: shaikshivani
+      aws_access_key: AKIA3KCOYQECVCYXFX2G
+      aws_secret_key: 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 

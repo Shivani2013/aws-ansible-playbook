@@ -1,0 +1,13 @@
+- name: List of unused Security group
+  hosts: localhost
+  tasks:
+  - name: Security group
+    shell: aws ec2 describe-network-interfaces --filters Name=group-id,Values=sg-0c38b55552d9050c6 --region us-east-1 --output json
+    register: output
+  - name: debugging output
+    debug:
+     var: output
+  - name: Copying output in file
+    copy:
+     content: "{{ output }}" 
+     dest: unusedsecuritygroup.txt      

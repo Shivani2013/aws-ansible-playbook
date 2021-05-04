@@ -1,0 +1,11 @@
+- name: s3 bucket lifecycle rule
+  hosts: localhost
+  tasks:
+  - shell: aws s3api get-bucket-lifecycle --bucket shaikshivani --output json 
+    register: output
+  - debug: var=output
+
+  - name: save output to a file
+    copy:
+      content: "{{ output.stdout}}" 
+      dest: s3bucketlifecycle.txt     

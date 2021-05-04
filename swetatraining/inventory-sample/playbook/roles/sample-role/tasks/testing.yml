@@ -1,0 +1,11 @@
+---
+  # - name: include vars
+  #include_vars: /root/swetatraining/inventory-sample/playbook/vars.yml 
+
+- name: win shell tast
+  win_shell: write-output "Hi {{name}}, she is employed with {{emp}}"
+  register: result
+
+- name: debug
+  debug:
+    var: result     

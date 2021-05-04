@@ -1,0 +1,12 @@
+- name: Get list of avilable access keys
+  hosts: localhost
+  tasks:
+  - name: Running aws cli command
+    shell: aws iam list-access-keys --query 'AccessKeyMetadata[].[AccessKeyId, Status]'
+    register: output
+  - name: Debugging output
+    debug: var=output
+  - name: Saving Output in file
+    copy: 
+      content: "{{ output }}" 
+      dest: "iamaccesskey.txt"   

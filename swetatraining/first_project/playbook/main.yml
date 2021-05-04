@@ -1,0 +1,8 @@
+---
+- name: first-roles play
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - roles/first-roles
+  tags: second-tag,second-tag
+        

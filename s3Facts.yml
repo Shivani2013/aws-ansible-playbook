@@ -1,0 +1,9 @@
+- name: Gather facts
+  hosts: localhost
+  tasks:
+  - aws_s3_bucket_info:
+      aws_access_key: AKIA3KCOYQECRXKUMSXU
+      aws_secret_key: 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    
+      encryption: bucket_info
+    register: bucket_info
+  - debug: var=bucket_info     

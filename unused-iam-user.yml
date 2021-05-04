@@ -1,0 +1,14 @@
+- name: Play to find unused IAM users
+  hosts: localhost
+  tasks:
+  - name: Listing all IAM users
+    shell: aws iam list-users --query 'Users[?PasswordLastUsed=='null'].UserName'
+    register: users
+  - name: Debugging output
+    debug:
+      var: users
+  - name: Copying output to file
+    copy:
+      content: "{{ users }}" 
+      dest: unusediamusers.txt     
+               

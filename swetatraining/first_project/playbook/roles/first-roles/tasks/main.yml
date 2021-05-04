@@ -1,0 +1,10 @@
+---
+- name: first test role
+  shell: echo "testing first role"
+  tags: first-tag
+
+- name: second task in first-role
+  copy:
+    src: /root/swetatraining/first_project/playbook/roles/first-roles/files/first.py 
+    dest: /tmp
+  tags: second-tag     

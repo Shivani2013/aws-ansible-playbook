@@ -1,0 +1,11 @@
+- name: s3 encryption
+  hosts: localhost
+  tasks:
+  - shell: aws s3api get-bucket-encryption --bucket shaikshivani
+    register: output
+  - debug: var=output
+
+  - name: save output in a file
+    copy: 
+      content: "{{ output.stdout }}"
+      dest: "output.txt"   

@@ -1,0 +1,6 @@
+- hosts: localhost
+  tasks: 
+  - ec2:
+      name: launchec
+      aws_access_key: AKIA3KCOYQEC2ZHERVYT
+      aws_secret_key: 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    

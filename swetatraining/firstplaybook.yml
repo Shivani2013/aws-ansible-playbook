@@ -1,0 +1,13 @@
+- name: first project test play
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: first task test
+      shell: whoami
+      register: output
+    - name: debug task results , var
+      debug:
+        var: output
+    - name: debug task results via using msg
+      debug:
+        msg: "print me the result: {{output}}"     

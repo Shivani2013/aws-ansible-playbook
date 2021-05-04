@@ -1,0 +1,14 @@
+---
+- name: List unused iam policies
+  hosts: localhost
+  tasks:
+  - name: Run shell command
+    shell: aws iam list-policies --only-attached --query Policies[].PolicyName
+    register: output
+  - name: debugging output
+    debug: var=output
+  - name: Save output in file
+    copy:
+      content: "{{ output }}"
+      dest: IAMPolicies1.txt      
+       

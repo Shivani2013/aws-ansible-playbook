@@ -1,0 +1,34 @@
+     - hosts: localhost
+       tasks:
+          - ec2_vpc_net:
+               aws_access_key: AKIA3KCOYQECXCLPA2V7 
+               aws_secret_key: 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
+               state: present
+               cidr_block: 172.22.0.0/16
+               region: us-east-1
+               resource_tags:
+                       name: Production-vpc
+               subnets:
+                   - cidr: 172.22.1.0/24
+                     az: us-east-la
+                     resource_tags:
+                     name: Web-Subnet
+                   - cidr: 172.22.2.0/24
+                     az: us-east-lb
+                     resource_tags:
+                     name: DB-Subnet
+                   - cidr: 172.22.3.0/24
+                     az: us-east-lc
+                     resource_tags:
+                             name: Jump-Subnet
+               internet_gateway: True
+               route_tables:
+                      - subnets:
+                           - 172.22.1.0/24
+                           - 172.22.2.0/24
+                           - 172.22.3.0/24
+                        routes:
+                           - dest: 0.0.0.0/0
+                             gw: igw
+                        resource_tags:
+                           name: Production_Route_Table          

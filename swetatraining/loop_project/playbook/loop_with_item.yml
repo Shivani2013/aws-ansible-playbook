@@ -1,0 +1,17 @@
+---
+
+- name: this is play
+  hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: cat a text file,registerit'svalue
+    shell: cat test.txt
+    register: file_output
+  - name: set fact for arry var
+    set_fact:
+      arry: ['1','2','hello','hi']
+  - name: print me hello
+    shell: echo "{{item}}"
+    when: item.find('hello') != -1
+    with_items: "{{arry}}"
+                                           

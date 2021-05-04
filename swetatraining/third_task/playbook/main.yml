@@ -1,0 +1,16 @@
+---
+- name: provision instance
+  hosts: localhost
+  gather_facts: no
+  vars_files: vars.yml
+  roles:
+    - roles/provision-ec2-instanc  
+  tags: create
+
+- name: validate instance
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - roles/validate-instance  
+  tags: validate
+

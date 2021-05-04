@@ -1,0 +1,5 @@
+---
+- hosts: localhost
+  remote_user: root
+  roles:
+    -  import_roles_frm_different_prjcts_in_local_prj

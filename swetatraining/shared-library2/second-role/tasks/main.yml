@@ -1,0 +1,4 @@
+---
+# tasks file for second-role
+- name: print second messege
+  shell: echo "Hello Everyone"

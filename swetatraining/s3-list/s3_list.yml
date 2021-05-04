@@ -1,0 +1,29 @@
+---
+- name: get s3 objects
+  hosts: localhost
+  gather_facts: no
+  vars_files: vars.yml
+  tasks:
+  - name: list s3 object
+    amazon.aws.aws_s3:
+      bucket: 'shaikshivani'
+      mode: list
+      aws_access_key: '{{aws_access_key}}'
+      aws_secret_key: '{{aws_secret_key}}'
+    register: op
+  - name: debug
+    debug:
+      var: op.s3_key[0]
+  - name: copy war file to tmp
+    amazon.aws.aws_s3:
+      bucket: shaikshivani
+      object: "{{op.s3_keys[0] | trim}}"
+      dest: /tmp/second.war
+      mode: get
+      region: us-east-1
+      aws_access_key: '{{aws_access_key}}'
+      aws_secret_key: '{{aws_secret_key}}'
+    register: download_op
+  - name: debug download_op
+    debug:
+      var: download_op     

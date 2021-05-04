@@ -1,0 +1,10 @@
+---
+ - name: Running httpd
+   hosts: localhost
+   become_method: sudo
+   become: true
+   tasks:
+     - name: Adding httpd
+       apt:
+        name: telnet     
+        state: latest 

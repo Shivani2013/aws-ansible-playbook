@@ -1,0 +1,11 @@
+- name: vpc flowlog
+  hosts: localhost
+  tasks:
+  - shell: aws ec2 describe-flow-logs 
+    register: outputs
+  - debug: var=outputs
+
+  - name: save output in a file
+    copy: 
+      content: "{{ outputs.stdout }}"
+      dest: "vpcflowlog.txt"   

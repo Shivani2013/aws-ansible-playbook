@@ -1,0 +1,19 @@
+---
+- name: this is play
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: set empty array
+      set_fact:
+         arry: []
+         another_arry: ['1', '2', 'hello', 'hi']
+    - name: pre debug arry var
+      debug:
+        var: arry 
+    - name: add elements to empty array
+      set_fact:
+         arry: "{{ arry }} + ['{{ item }}']"
+      with_items: "{{another_arry}}" 
+    - name: debug post adding element to empty array var
+      debug:
+         var: arry       

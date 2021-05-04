@@ -1,0 +1,4 @@
+- amazon.aws.s3_bucket:
+    name: mys3bucket
+    state: pik7gu7yh8tur 3q2chtusro90mj-htr8mn5 tg  name: mys3bucket s3_url: http://your-ceph-rados-gateway-server.xxx
+    ceph: true

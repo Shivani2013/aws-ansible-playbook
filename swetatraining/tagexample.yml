@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+  - debug:
+      msg: Always run this task
+    tags: always
+  - debug:
+      msg: Never run this task
+    tags: never
+  - debug:
+      msg: Unless debug or never is explicitly requested
+    tags: [never, debug]

@@ -1,0 +1,14 @@
+- name: Gather facts
+  hosts: localhost
+  tasks:
+  - name: Gathering facts about EC2 Instances
+    ec2_instance_info:
+      aws_access_key: AKIA3KCOYQECRXKUMSXU
+      aws_secret_key: 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      
+    register: instance_info
+  - debug:
+       var: instance_info
+  - name: copying output in file
+    copy:
+      content: "{{ instance_info }}"
+      dest: ec2fact.txt      

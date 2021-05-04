@@ -1,0 +1,5 @@
+---
+                
+- name: nothing
+  shell: pwd
+  delegate_to: localhost

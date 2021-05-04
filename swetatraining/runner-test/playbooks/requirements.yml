@@ -1,0 +1,9 @@
+- src: git@ec2-15-207-96-242.ap-south-1.compute.amazonaws.com:shivani-shared-library/a.git
+  version: master
+  name: shared-library-A
+  scm: git
+
+- src: git@ec2-15-207-96-242.ap-south-1.compute.amazonaws.com:shivani-shared-library/b.git
+  version: master
+  name: shared-library-B
+  scm: git

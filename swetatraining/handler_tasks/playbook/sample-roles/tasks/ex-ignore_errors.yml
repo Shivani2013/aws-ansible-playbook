@@ -1,0 +1,25 @@
+---
+                
+- name: include vars
+  include_vars: /root/swetatraining/handler_tasks/playbook/vars.yml
+
+- name: shell test
+  shell: mic MEMORYCHIP get Capacity     
+  register: result
+                
+- name: debug
+  debug:   
+  var: result.stdout_lines[-4] | trim 
+                                        
+- name: calculate cap in GB
+  #shell: python3 /home/ec2-user/ansible-projects/inventory-sample/scripts/calc1.py   "{{result.stdout_lines[-4] | trim}}"
+  shell:  python3 /root/swetatraining/handler_tasks/scripts/calc1.py
+  register: cap_result           
+  ignore_errors: yes
+  delegate_to: localhost
+                              
+- name: debugging cap_result
+  debug:
+   var: cap_result 
+  ignore_errors: yes
+  delegate_to: localhost
