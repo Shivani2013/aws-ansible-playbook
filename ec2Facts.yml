@@ -3,8 +3,8 @@
   tasks:
   - name: Gathering facts about EC2 Instances
     ec2_instance_info:
-      aws_access_key: AKIA3KCOYQECRXKUMSXU
-      aws_secret_key: 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      
+      aws_access_key: 
+      aws_secret_key:   
     register: instance_info
   - debug:
        var: instance_info
