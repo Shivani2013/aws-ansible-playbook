@@ -3,8 +3,8 @@
   tasks: 
   - name: VPC Creation
     ec2_vpc_net:
-      aws_access_key: AKIA3KCOYQECRXKUMSXU
-      aws_secret_key: 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
+      aws_access_key: 
+      aws_secret_key: 
       name: Creating vpc
       cidr_block: 10.10.0.0/16
       region: us-east-1
