@@ -5,8 +5,8 @@
   name: "ec2 launcher"
   tasks: 
     - 
-      aws_access_key: AKIA3KCOYQEC2ZHERVYT
-      aws_secret_key: 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
+      aws_access_key: 
+      aws_secret_key: 
       count: 1
       ec2: 
       group: default
