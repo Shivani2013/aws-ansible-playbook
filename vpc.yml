@@ -1,8 +1,8 @@
      - hosts: localhost
        tasks:
           - ec2_vpc_net:
-               aws_access_key: AKIA3KCOYQECXCLPA2V7 
-               aws_secret_key: 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
+               aws_access_key: 
+               aws_secret_key: 
                state: present
                cidr_block: 172.22.0.0/16
                region: us-east-1
